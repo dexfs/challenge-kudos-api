@@ -10,6 +10,9 @@ module.exports = {
       directory: path.resolve('src', 'database', 'migrations'),
       tableName: 'knex_migrations',
     },
+    seeds: {
+      directory: path.resolve('src', 'database', 'seeds'),
+    },
   },
 
   development: {
@@ -29,6 +32,9 @@ module.exports = {
       directory: path.resolve('src', 'database', 'migrations'),
       tableName: 'knex_migrations',
     },
+    seeds: {
+      directory: path.resolve('src', 'database', 'seeds'),
+    },
   },
 
   production: {
@@ -47,6 +53,9 @@ module.exports = {
     migrations: {
       directory: path.resolve('src', 'database', 'migrations'),
       tableName: 'knex_migrations',
+    },
+    seeds: {
+      directory: path.resolve('src', 'database', 'seeds'),
     },
   },
 };
