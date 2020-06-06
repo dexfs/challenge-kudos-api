@@ -5,10 +5,10 @@ const {
 
 exports.up = function (knex) {
   const fields = knex.schema.createTable('user_kudos', (table) => {
-    table.uuid('id').primary();
-    table.string('kudos_id').unique();
+    table.string('kudo_id');
     table.string('user_id');
     table.integer('quantity').default(2);
+    table.primary(['user_id', 'kudo_id']);
   });
 
   return createTable({ knex, tableName: 'user_kudos', fields });
