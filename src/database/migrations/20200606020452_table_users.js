@@ -7,6 +7,7 @@ exports.up = function (knex) {
     table.uuid('id').primary();
     table.string('email').unique();
     table.string('login');
+    table.string('name');
     table.string('auth_driver');
     table.string('access_token');
   });
