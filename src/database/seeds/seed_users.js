@@ -1,32 +1,13 @@
-const faker = require('faker');
-
+const { generateUsers, generateUserKudos } = require('./../fixtures/users');
 exports.seed = function (knex) {
   // Deletes ALL existing entries
   return knex('users')
     .del()
     .then(function () {
       // Inserts seed entries
-      return knex('users').insert([
-        {
-          id: faker.random.uuid(),
-          email: faker.internet.email().toLowerCase(),
-          name: faker.name.findName(),
-        },
-        {
-          id: faker.random.uuid(),
-          email: faker.internet.email().toLowerCase(),
-          name: faker.name.findName(),
-        },
-        {
-          id: faker.random.uuid(),
-          email: faker.internet.email().toLowerCase(),
-          name: faker.name.findName(),
-        },
-        {
-          id: faker.random.uuid(),
-          email: faker.internet.email().toLowerCase(),
-          name: faker.name.findName(),
-        },
-      ]);
+      return knex('users').insert(generateUsers());
+    })
+    .then(function () {
+      return knex('user_kudos').insert(generateUserKudos());
     });
 };
