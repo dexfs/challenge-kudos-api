@@ -1,0 +1,52 @@
+require('dotenv-flow').config();
+const path = require('path');
+module.exports = {
+  test: {
+    client: 'sqlite3',
+    connection: {
+      filename: './dev.sqlite3',
+    },
+    migrations: {
+      directory: path.resolve('src', 'database', 'migrations'),
+      tableName: 'knex_migrations',
+    },
+  },
+
+  development: {
+    client: 'postgresql',
+    connection: process.env.DB_DSN || {
+      port: process.env.PORT || '5432',
+      host: process.env.DB_HOST || '127.0.0.1',
+      database: process.env.DB_NAME,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+    },
+    pool: {
+      min: 2,
+      max: 10,
+    },
+    migrations: {
+      directory: path.resolve('src', 'database', 'migrations'),
+      tableName: 'knex_migrations',
+    },
+  },
+
+  production: {
+    client: 'postgresql',
+    connection: process.env.DB_DSN || {
+      port: process.env.PORT || '5432',
+      host: process.env.DB_HOST || '127.0.0.1',
+      database: process.env.DB_NAME,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+    },
+    pool: {
+      min: 2,
+      max: 10,
+    },
+    migrations: {
+      directory: path.resolve('src', 'database', 'migrations'),
+      tableName: 'knex_migrations',
+    },
+  },
+};
