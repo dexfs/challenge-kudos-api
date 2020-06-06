@@ -1,0 +1,47 @@
+{
+  "name": "github-stats",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "Andre Santos <andre@dexdev.com.br>",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir build",
+    "dev": "nodemon src/server.js",
+    "dev:debug": "nodemon --inspect src/server.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "@sentry/node": "^5.15.4",
+    "axios": "^0.19.2",
+    "celebrate": "^12.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-boom-v2": "^4.2.2",
+    "express-rate-limit": "^5.1.1",
+    "helmet": "^3.22.0",
+    "lodash": "^4.17.15",
+    "morgan": "^1.10.0",
+    "youch": "^2.0.10"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@sucrase/jest-plugin": "^2.0.0",
+    "axios-mock-adapter": "^1.18.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^25.2.4",
+    "nodemon": "^2.0.2",
+    "prettier": "^2.0.2",
+    "sucrase": "^3.13.0",
+    "supertest": "^4.0.2"
+  }
+}
