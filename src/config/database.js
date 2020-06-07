@@ -1,11 +1,6 @@
-const config = {
-  client: 'pg',
-  connection: process.env.DB_DNS || {
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
-  },
-};
+import dotenv from 'dotenv-flow';
+dotenv.config({ silent: true });
+import knexConfig from '../../knexfile';
+const env = process.env.NODE_ENV || 'development';
 
-export const knex = require('knex')(config);
+export const knex = require('knex')(knexConfig[env]);
