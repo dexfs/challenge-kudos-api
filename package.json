@@ -11,8 +11,9 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "migration:make": "NODE_ENV=development npx knex migrate:make",
-    "migration:latest": "NODE_ENV=development npx knex migrate:latest",
-    "migration:rollback": "NODE_ENV=development npx knex migrate:rollback --all"
+    "db:migration": "NODE_ENV=development npx knex migrate:latest",
+    "db:rollback": "NODE_ENV=development npx knex migrate:rollback --all",
+    "db:seed": "NODE_ENV=development npx knex seed:run"
   },
   "dependencies": {
     "@sentry/node": "^5.15.4",
@@ -23,11 +24,13 @@
     "express-async-errors": "^3.1.1",
     "express-boom-v2": "^4.2.2",
     "express-rate-limit": "^5.1.1",
+    "express-validation": "^3.0.5",
     "helmet": "^3.22.0",
     "knex": "^0.21.1",
     "lodash": "^4.17.15",
     "morgan": "^1.10.0",
     "pg": "^8.2.1",
+    "uuid": "^8.1.0",
     "youch": "^2.0.10"
   },
   "devDependencies": {
@@ -49,6 +52,7 @@
     "jest": "^25.2.4",
     "nodemon": "^2.0.2",
     "prettier": "^2.0.2",
+    "sqlite3": "^4.2.0",
     "sucrase": "^3.13.0",
     "supertest": "^4.0.2"
   }
