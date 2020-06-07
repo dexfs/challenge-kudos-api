@@ -8,8 +8,8 @@ exports.seed = function (knex) {
       // Inserts seed entries
       return knex('users').insert(usersSeed);
     })
-    .then(function (result) {
-      knex('user_kudos')
+    .then(function () {
+      return knex('user_kudos')
         .del()
         .then(function () {
           return knex('user_kudos').insert(generateUserKudos(usersSeed));

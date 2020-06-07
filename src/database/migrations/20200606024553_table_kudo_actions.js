@@ -7,8 +7,8 @@ exports.up = function (knex) {
   const fields = knex.schema.createTable('kudo_actions', (table) => {
     table.uuid('id').primary();
     table.uuid('kudo_id').notNullable();
-    table.uuid('from_user_id').notNullable();
-    table.uuid('to_user_id').notNullable();
+    table.bigInteger('from_user_id').notNullable();
+    table.bigInteger('to_user_id').notNullable();
     table.text('comment');
     table.timestamps();
 

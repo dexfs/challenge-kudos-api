@@ -4,24 +4,39 @@ const kudos = require('./kudos');
 const generateUsers = () => {
   return [
     {
-      id: faker.random.uuid(),
-      email: faker.internet.email().toLowerCase(),
-      name: faker.name.findName(),
+      id: 176013,
+      login: 'wesbos',
+      avatar_url: 'https://avatars2.githubusercontent.com/u/176013?v=4',
+      github_profile: 'https://github.com/wesbos',
+      name: 'Wes Bos',
     },
     {
-      id: faker.random.uuid(),
-      email: faker.internet.email().toLowerCase(),
-      name: faker.name.findName(),
+      login: 'dexfs',
+      id: 745268,
+      avatar_url: 'https://avatars3.githubusercontent.com/u/745268?v=4',
+      github_profile: 'https://github.com/dexfs',
+      name: 'André Santos',
     },
     {
-      id: faker.random.uuid(),
-      email: faker.internet.email().toLowerCase(),
-      name: faker.name.findName(),
+      id: 4606725,
+      login: 'badtuxx',
+      avatar_url: 'https://avatars0.githubusercontent.com/u/4606725?v=4',
+      github_profile: 'https://github.com/badtuxx',
+      name: 'Jeferson Fernando',
     },
     {
-      id: faker.random.uuid(),
-      email: faker.internet.email().toLowerCase(),
-      name: faker.name.findName(),
+      id: 804684,
+      login: 'mpociot',
+      avatar_url: 'https://avatars2.githubusercontent.com/u/804684?v=4',
+      github_profile: 'https://github.com/mpociot',
+      name: 'Marcel Pociot',
+    },
+    {
+      login: 'gcmatheusj',
+      id: 38117213,
+      avatar_url: 'https://avatars1.githubusercontent.com/u/38117213?v=4',
+      github_profile: 'https://github.com/gcmatheusj',
+      name: 'Matheus Castro',
     },
   ];
 };

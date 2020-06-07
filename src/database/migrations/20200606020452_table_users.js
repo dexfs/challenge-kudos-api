@@ -4,11 +4,11 @@ const {
 } = require('../helpers/schema-helpers');
 exports.up = function (knex) {
   const fields = knex.schema.createTable('users', (table) => {
-    table.uuid('id').primary();
-    table.string('email').unique();
-    table.string('login');
+    table.bigInteger('id').primary();
+    table.string('login').unique();
+    table.string('avatar_url');
+    table.string('github_profile');
     table.string('name');
-    table.string('auth_driver');
     table.string('access_token');
   });
 
