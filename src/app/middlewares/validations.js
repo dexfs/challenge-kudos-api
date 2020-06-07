@@ -8,3 +8,12 @@ export const createKudosValidation = {
     comment: Joi.string().optional(),
   }),
 };
+
+export const githubValidation = {
+  body: Joi.object({
+    client_id: Joi.string().required(),
+    redirect_id: Joi.string().required(),
+    client_secret: Joi.string().required(),
+    code: Joi.string().required(),
+  }),
+};

@@ -1,7 +1,10 @@
 import { Router } from 'express';
-import { celebrate, Joi, Segments } from 'celebrate';
+import { validate } from 'express-validation';
 
 import IndexController from './app/controllers/IndexController';
+import KudosController from './app/controllers/KudosController';
+import GithubController from './app/controllers/GithubController';
+import { createKudosValidation } from './app/middlewares/validations';
 
 const routes = new Router();
 
@@ -16,18 +19,14 @@ routes.get('/users/chart', (req, res) => {
 });
 
 // post
+// routes.post('/me', IndexController.index);
 routes.post(
-  '/me',
-  celebrate({
-    [Segments.BODY]: Joi.object({
-      owner: Joi.string().required(),
-      repo: Joi.string().required(),
-    }),
-  }),
-  IndexController.index
+  '/kudos',
+  validate(createKudosValidation, {}, {}),
+  KudosController.create
 );
-routes.post('/kudos', (req, res) => {
-  return res.status(201).json({ data: req.body });
-});
+
+// Github
+routes.post('/authenticate', GithubController.index);
 
 export default routes;
