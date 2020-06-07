@@ -1,6 +1,6 @@
 import express from 'express';
+import { ValidationError } from 'express-validation';
 import cors from 'cors';
-import { errors } from 'celebrate';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
@@ -40,7 +40,13 @@ class App {
   }
 
   exceptionHandler() {
-    this.server.use(errors());
+    this.server.use(function (err, req, res, next) {
+      if (err instanceof ValidationError) {
+        return res.status(err.statusCode).json(err);
+      }
+
+      next();
+    });
     this.server.use(axiosNotFoundError);
     this.server.use(internalError);
   }
