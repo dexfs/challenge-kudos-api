@@ -3,10 +3,11 @@ import request from 'supertest';
 import { knex } from '../../config';
 import knexConfig from './../../../knexfile';
 
-beforeEach(async () => {
+beforeEach(async (done) => {
   await knex.migrate.rollback(knexConfig);
   await knex.migrate.latest(knexConfig);
   await knex.seed.run(knexConfig);
+  done();
 });
 
 describe('Kudos e2e', () => {
@@ -14,9 +15,8 @@ describe('Kudos e2e', () => {
     test('it should be given a kudos correctly', async () => {
       const userFrom = await knex('users').first('id');
       const userTo = await knex('users')
-        .whereNot({ id: userFrom.id })
+        .whereNot({ id: Number(userFrom.id) })
         .first('id');
-
       const kudo = await knex('kudos').first('id');
 
       const response = await request(app).post('/api/v1/kudos').send({
