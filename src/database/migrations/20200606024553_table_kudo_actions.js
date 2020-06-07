@@ -6,11 +6,13 @@ const {
 exports.up = function (knex) {
   const fields = knex.schema.createTable('kudo_actions', (table) => {
     table.uuid('id').primary();
-    table.uuid('kudo_id').unique();
-    table.uuid('from_user_id');
-    table.uuid('to_user_id');
+    table.uuid('kudo_id').notNullable();
+    table.uuid('from_user_id').notNullable();
+    table.uuid('to_user_id').notNullable();
     table.text('comment');
     table.timestamps();
+
+    table.unique(['from_user_id', 'to_user_id', 'kudo_id']);
   });
 
   return createTable({ knex, tableName: 'kudo_actions', fields });
