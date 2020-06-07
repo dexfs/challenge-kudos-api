@@ -25,16 +25,10 @@ const generateUsers = () => {
     },
   ];
 };
-/*
-- id (uuid) - public
-- kudos_id (primary)
-- user_id (primary)
-- quantity
 
-*/
-const generateUserKudos = () => {
+const generateUserKudos = (users) => {
   const userKudos = [];
-  generateUsers().forEach((user) => {
+  users.forEach((user) => {
     kudos.forEach((kudo) => {
       userKudos.push({ kudo_id: kudo.id, user_id: user.id });
     });
