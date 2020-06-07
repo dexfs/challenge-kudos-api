@@ -25,10 +25,12 @@
     "express-boom-v2": "^4.2.2",
     "express-rate-limit": "^5.1.1",
     "express-validation": "^3.0.5",
+    "form-data": "^3.0.0",
     "helmet": "^3.22.0",
     "knex": "^0.21.1",
     "lodash": "^4.17.15",
     "morgan": "^1.10.0",
+    "node-fetch": "^2.6.0",
     "pg": "^8.2.1",
     "uuid": "^8.1.0",
     "youch": "^2.0.10"
