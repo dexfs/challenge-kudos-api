@@ -1,7 +1,7 @@
 class IndexController {
-  async(req, res) {
-    return res.json({ data: 'Hello World' });
+  async index(req, res) {
+    return res.json({ data: req.user });
   }
 }
 
-export default IndexController;
+export default new IndexController();
