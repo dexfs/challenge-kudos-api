@@ -8,6 +8,7 @@ import * as Sentry from '@sentry/node';
 import 'express-async-errors';
 
 import routes from './routes';
+import meMiddleware from './app/middlewares/me-middleware';
 import sentryConfig from './config/sentry';
 import { axiosNotFoundError, internalError } from './app/utils/errorHandler';
 
@@ -36,6 +37,7 @@ class App {
   }
 
   routes() {
+    this.server.use(meMiddleware);
     this.server.use('/api/v1', routes);
   }
 
@@ -47,7 +49,6 @@ class App {
 
       next();
     });
-    this.server.use(axiosNotFoundError);
     this.server.use(internalError);
   }
 }
