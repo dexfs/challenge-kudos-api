@@ -21,8 +21,10 @@ export const authenticate = async (req, res) => {
 
     const user = await UsersService.findOrCreate(githubUserInfo);
     console.log({ user });
+
+    return user;
   } catch (error) {
-    console.error(error);
+    console.error('authenticate', error);
     throw error;
   }
 };
