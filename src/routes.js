@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { validate } from 'express-validation';
 
 import IndexController from './app/controllers/IndexController';
+import UsersController from './app/controllers/UsersController';
 import KudosController from './app/controllers/KudosController';
 import GithubController from './app/controllers/GithubController';
 import { createKudosValidation } from './app/middlewares/validations';
@@ -17,9 +18,9 @@ routes.get('/kudos/chart', (req, res) => {
 routes.get('/users/chart', (req, res) => {
   return res.json({ data: 'ok' });
 });
+routes.get('/users/all', UsersController.index);
 
-// post
-// routes.post('/me', IndexController.index);
+routes.post('/me', IndexController.index);
 routes.post(
   '/kudos',
   validate(createKudosValidation, {}, {}),
